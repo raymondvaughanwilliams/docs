@@ -1,0 +1,158 @@
+---
+title: 'MENA API DOCS'
+description: 'API DOCUMENTATION FOR MENA.'
+
+Base URL
+
+The base URL for all endpoints is:
+
+arduino
+
+https://yourapi.com/api
+
+Authentication
+
+All endpoints require API key authentication. Append the api_key parameter to the query string for authentication.
+Error Handling
+
+The API returns standard HTTP status codes to indicate the success or failure of a request. Error responses will include a JSON object with an error message.
+Endpoints
+1. Get Agents
+
+    Endpoint: GET /agents
+    Description: Retrieve a list of agents with optional filtering.
+    Parameters:
+        api_key: (required) Your API key.
+        Additional filtering parameters:
+            id: Filter by agent ID.
+            name: Filter by agent name.
+            status: Filter by agent status.
+    Example Request:
+
+    bash
+
+GET /api/agents?api_key=your_api_key&id=1
+
+Example Response:
+
+css
+
+    [  {    "id": 1,    "name": "Agent Name",    "status": "Active"  }]
+
+2. Get Single Agent
+
+    Endpoint: GET /agent/<agent_id>
+    Description: Retrieve details of a single agent by ID.
+    Parameters:
+        api_key: (required) Your API key.
+        agent_id: (required) ID of the agent to retrieve.
+    Example Request:
+
+    bash
+
+GET /api/agent/1?api_key=your_api_key
+
+Example Response:
+
+json
+
+    {
+      "id": 1,
+      "name": "Agent Name",
+      "number": "Agent Contact Number",
+      "locations": [
+        {
+          "id": 1,
+          "name": "Location Name"
+        }
+      ]
+    }
+
+3. Get Deliveries
+
+    Endpoint: GET /deliveries
+    Description: Retrieve deliveries associated with the authenticated user.
+    Parameters:
+        api_key: (required) Your API key.
+        Additional filtering parameters (optional).
+    Example Request:
+
+    bash
+
+GET /api/deliveries?api_key=your_api_key
+
+Example Response:
+
+css
+
+    [  {    "id": 1,    "item_description": "Delivery Description"  }]
+
+4. Get Single Delivery
+
+    Endpoint: GET /delivery/<delivery_id>
+    Description: Retrieve details of a single delivery by ID.
+    Parameters:
+        api_key: (required) Your API key.
+        delivery_id: (required) ID of the delivery to retrieve.
+    Example Request:
+
+    bash
+
+GET /api/delivery/1?api_key=your_api_key
+
+Example Response:
+
+json
+
+    {
+      "id": 1,
+      "item_description": "Delivery Description"
+    }
+
+5. Create Delivery
+
+    Endpoint: POST /delivery
+    Description: Create a new delivery.
+    Parameters:
+        api_key: (required) Your API key.
+        Other parameters required for creating a delivery (refer to API documentation).
+    Example Request:
+
+    bash
+
+POST /api/delivery
+{
+  "api_key": "your_api_key",
+  "location_id": 1,
+  "destination_id": 2,
+  "description": "Delivery Description",
+  ...
+}
+
+Example Response:
+
+json
+
+    {
+      "message": "Delivery created successfully",
+      "delivery_id": 1
+    }
+
+6. Get Payment Options
+
+    Endpoint: GET /paymentoptions
+    Description: Retrieve payment options associated with the authenticated user.
+    Parameters:
+        api_key: (required) Your API key.
+    Example Request:
+
+    bash
+
+GET /api/paymentoptions?api_key=your_api_key
+
+Example Response:
+
+css
+[  {    "id": 1,    "lastfour": "1234"  }]
+-----
+----[  {    "id": 1,    "lastfour": "1234"  }]
