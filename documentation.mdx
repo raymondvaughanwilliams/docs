@@ -32,16 +32,16 @@ Endpoints
             status: Filter by agent status.
     Example Request:
 
-    bash
+```bash
 
 GET /api/agents?api_key=your_api_key&id=1
-
+```
 Example Response:
 
-css
+```bash
 
     [  {    "id": 1,    "name": "Agent Name",    "status": "Active"  }]
-
+```
 2. Get Single Agent
 
     Endpoint: GET /agent/<agent_id>
@@ -51,13 +51,13 @@ css
         agent_id: (required) ID of the agent to retrieve.
     Example Request:
 
-    bash
+```bash
 
 GET /api/agent/1?api_key=your_api_key
-
+```
 Example Response:
 
-json
+```json
 
     {
       "id": 1,
@@ -70,7 +70,7 @@ json
         }
       ]
     }
-
+```
 3. Get Deliveries
 
     Endpoint: GET /deliveries
@@ -80,16 +80,15 @@ json
         Additional filtering parameters (optional).
     Example Request:
 
-    bash
-
+```bash
 GET /api/deliveries?api_key=your_api_key
-
+```
 Example Response:
 
-css
+```bash
 
     [  {    "id": 1,    "item_description": "Delivery Description"  }]
-
+```
 4. Get Single Delivery
 
     Endpoint: GET /delivery/<delivery_id>
@@ -99,10 +98,9 @@ css
         delivery_id: (required) ID of the delivery to retrieve.
     Example Request:
 
-    bash
-
+    ```bash
 GET /api/delivery/1?api_key=your_api_key
-
+```
 Example Response:
 
 json
@@ -158,4 +156,4 @@ Example Response:
 css
 [  {    "id": 1,    "lastfour": "1234"  }]
 [  {    "id": 1,    "lastfour": "1234"  }]
--------
+---------
