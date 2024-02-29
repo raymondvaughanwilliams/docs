@@ -1,4 +1,33 @@
 ---
-title: 'Create Plant'
-openapi: 'POST /plants'
+title: 'Get Agents'
+api: 'GET /agent/<agent_id>'
 ---
+Get Single Agent
+
+    Endpoint: GET /agent/<agent_id>
+    Description: Retrieve details of a single agent by ID.
+    Parameters:
+        api_key: (required) Your API key.
+        agent_id: (required) ID of the agent to retrieve.
+    Example Request:
+
+```bash
+
+GET /api/agent/1?api_key=your_api_key
+```
+Example Response:
+
+```json
+
+    {
+      "id": 1,
+      "name": "Agent Name",
+      "number": "Agent Contact Number",
+      "locations": [
+        {
+          "id": 1,
+          "name": "Location Name"
+        }
+      ]
+    }
+```
